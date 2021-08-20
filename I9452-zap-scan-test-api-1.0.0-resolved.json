@@ -1,0 +1,98 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "simple api to use zap api scan on",
+    "version": "1.0.0",
+    "title": "zap-scan-test-api"
+  },
+  "host": "virtserver.swaggerhub.com",
+  "basePath": "/I9452/zap-scan-test-api/1.0.0",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/file": {
+      "get": {
+        "description": "Allows list an object",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "query",
+            "description": "ID of the object to get",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/inline_response_200"
+            }
+          },
+          "404": {
+            "description": "Bad Request - only put the ID of the object you want the information",
+            "schema": {
+              "$ref": "#/definitions/inline_response_404"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Allows add an object",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "query",
+            "description": "ID of the object to post",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "info",
+            "in": "query",
+            "description": "info to post",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/inline_response_200"
+            }
+          },
+          "404": {
+            "description": "Bad Request - an ID and information related to that ID needs to be set",
+            "schema": {
+              "$ref": "#/definitions/inline_response_200"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "inline_response_404": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "format": "info",
+          "example": "not working"
+        }
+      }
+    },
+    "inline_response_200": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "format": "info",
+          "example": "working"
+        }
+      }
+    }
+  }
+}

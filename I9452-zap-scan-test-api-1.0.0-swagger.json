@@ -1,0 +1,97 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "zap-scan-test-api",
+    "description" : "simple api to use zap api scan on"
+  },
+  "paths" : {
+    "/file" : {
+      "get" : {
+        "description" : "Allows list an object",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "ID",
+          "type" : "string",
+          "required" : true,
+          "description" : "ID of the object to get"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "status" : {
+                  "type" : "string",
+                  "format" : "info",
+                  "example" : "working"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Bad Request - only put the ID of the object you want the information",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "status" : {
+                  "type" : "string",
+                  "format" : "info",
+                  "example" : "not working"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "description" : "Allows add an object",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "ID",
+          "type" : "string",
+          "required" : true,
+          "description" : "ID of the object to post"
+        }, {
+          "in" : "query",
+          "name" : "info",
+          "type" : "string",
+          "required" : true,
+          "description" : "info to post"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "status" : {
+                  "type" : "string",
+                  "format" : "info",
+                  "example" : "working"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Bad Request - an ID and information related to that ID needs to be set",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "status" : {
+                  "type" : "string",
+                  "format" : "info",
+                  "example" : "working"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/I9452/zap-scan-test-api/1.0.0",
+  "schemes" : [ "https" ]
+}
